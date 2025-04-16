@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import Footer from "@components/Footer.astro";
 
@@ -32,9 +32,9 @@ const { title } = Astro.props;
     <link rel="preload" href="/fonts/lato/lato-400.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/lato/lato-700.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/pt-serif/pt-serif-700.woff2" as="font" type="font/woff2" crossorigin />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
-  <body class="font-sans text-primary tracking-widest antialiased">
+  <body class="font-sans tracking-widest text-primary antialiased">
     <main class="min-h-screen">
       <slot />
     </main>
@@ -67,7 +67,7 @@ const { title } = Astro.props;
       }
 
       header {
-        @apply fixed top-0 left-0 right-0 z-50 w-full p-6 bg-white/75 backdrop-blur-md;
+        @apply fixed left-0 right-0 top-0 z-50 w-full bg-white/75 p-6 backdrop-blur-md;
       }
 
       h1 {
@@ -75,10 +75,10 @@ const { title } = Astro.props;
       }
 
       .animate {
-        @apply opacity-0 -translate-y-3 transition-all duration-300;
+        @apply -translate-y-3 opacity-0 transition-all duration-300;
       }
       .animate.show {
-        @apply opacity-100 translate-y-0;
+        @apply translate-y-0 opacity-100;
       }
     </style>
     <script is:inline>
